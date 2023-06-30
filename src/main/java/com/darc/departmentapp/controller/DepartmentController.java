@@ -1,6 +1,7 @@
 package com.darc.departmentapp.controller;
 
 import com.darc.departmentapp.entity.Department;
+import com.darc.departmentapp.error.DepartmentNotFoundException;
 import com.darc.departmentapp.service.DepartmentService;
 import com.darc.departmentapp.service.DepartmentServiceImpl;
 import jakarta.validation.Valid;
@@ -32,7 +33,7 @@ public class DepartmentController {
     }
 
     @GetMapping("/departments/{id}")
-    public Department fetchDeptById(@PathVariable("id") Long departmentId) {
+    public Department fetchDeptById(@PathVariable("id") Long departmentId) throws DepartmentNotFoundException {
         return departmentService.fetchDeptById(departmentId);
     }
 
