@@ -1,5 +1,3 @@
-server:
-  port: 8080
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -10,3 +8,57 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: "env,beans"
+
+#spring:
+#  config:
+#    activate:
+#      on-profile: qa
+#
+#---
+#
+#spring:
+#  profiles: dev
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    password: admin
+#    url: jdbc:mysql://localhost:3306/dptapp
+#    username: root
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#
+#---
+#
+#spring:
+#  profiles: qa
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    password: admin
+#    url: jdbc:mysql://localhost:3306/dptapp-qa
+#    username: root
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#
+#---
+#
+#spring:
+#  profiles: prod
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    password: admin
+#    url: jdbc:mysql://localhost:3306/dptapp-prod
+#    username: root
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
